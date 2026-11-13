@@ -1,30 +1,24 @@
 <?php
-//session_start();
+session_start();
 
-// if (
-//     $_SERVER["REQUEST_METHOD"] === "POST" &&  isset( $_POST["accio"] ) && $_POST["accio"] === "reiniciar"
-// ) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["accio"]) && $_POST["accio"] == "reiniciar") {
 
-//     // Només ADMIN
-//     if (
-//         ! isset( $_SESSION["usuari_actiu"] ) ||
-//         $_SESSION["usuari_actiu"]["rol"] !== "admin"
-//     ) {
-//         header( "Location: login.php" );
-//         exit;
-//     }
+    // Como administrador, se puede reiniciar
+    if (!isset($_SESSION["usuari_actiu"]) || $_SESSION["usuari_actiu"]["rol"] != "admin") {
+        header("Location: login.php");
+        exit;
+    }
 
-//     // DESTROY
-//     $_SESSION = [];
-//     session_destroy();
+    // Se borra todo
+    $_SESSION = [];
+    session_destroy();
 
-// } else {
+} else {
 
-//     // Logout normal. Només destruim els calaixos (UNSET)
-//     unset( $_SESSION["usuari_actiu"] );
-//     unset( $_SESSION["partida"] );
+    // Solo borro el usuario y la partida
+    unset($_SESSION["usuari_actiu"]);
+    unset($_SESSION["partida"]);
+}
 
-// }
-
-// header( "Location: index.php" );
-// exit;
+header("Location: index.php");
+exit;

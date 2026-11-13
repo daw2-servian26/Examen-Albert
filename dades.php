@@ -1,7 +1,7 @@
 <?php
-// DADES INICIALS DE L'EXAMEN - NO INCLOU LA LOGICA DEL JOC.
-// Les claus "correcta" contenen posicions de 0 a 3.
-// Inicialitzeu els arrays en $_SESSION nomes si encara no existeixen.
+// DATOS INICIALES DEL EXAMEN: NO INCLUYE LA LÓGICA DEL JUEGO.
+// Las claves "correcta" contienen posiciones de 0 a 3.
+// Se inicializan los arrays en $_SESSION solo si todavía no existen.
 
 $categories = [ "Geografia", "Història", "Ciència i natura", "Art i cultura" ];
 
@@ -16,8 +16,8 @@ $preguntes = [
     [ "id" => 8, "categoria" => "Art i cultura", "pregunta" => "Qui va escriure El petit príncep?", "opcions" => [ "Jules Verne", "Antoine de Saint-Exupéry", "Victor Hugo", "Albert Camus" ], "correcta" => 1 ]
 ];
 
-// Usuaris inicials per al context de l'examen.
-// Els hashes es generen per demostrar l'ús de password_verify().
+// Usuarios iniciales para el contexto del examen.
+// Se generan los hashes para demostrar el uso de password_verify().
 $usuaris = [
     [ "id" => 1, "usuari" => "admin", "password" => password_hash( "admin123", PASSWORD_DEFAULT ), "rol" => "admin" ],
     [ "id" => 2, "usuari" => "jugador", "password" => password_hash( "jugador123", PASSWORD_DEFAULT ), "rol" => "jugador" ]
